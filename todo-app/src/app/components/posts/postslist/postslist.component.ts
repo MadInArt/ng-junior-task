@@ -1,13 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { PostService } from 'src/app/services/posts-service.service';
+
 
 @Component({
   selector: 'app-postslist',
   templateUrl: './postslist.component.html',
   styleUrls: ['./postslist.component.css']
 })
-export class PostslistComponent implements OnInit {
-
+export class PostslistComponent   {
   posts: any;  
   
   constructor(private service:PostService) {  
@@ -26,7 +26,7 @@ export class PostslistComponent implements OnInit {
   
     this.service.createPost(post)  
       .subscribe(response => {  
-        post['id'] = response;  
+        post['id'] = response.json();  
         this.posts.splice(0, 0, post);  
         console.log(response);  
       });  
@@ -46,5 +46,6 @@ export class PostslistComponent implements OnInit {
         this.posts.splice(index, 1);  
       });  
   }  
+
 
 }
