@@ -1,1 +1,13 @@
-<p>todolist works!</p>
+<!-- <app-todo-item 
+  *ngFor="let todo of todos"
+  [todo]="todo"
+  (deleteTodo)="deleteTodo($event)"
+  >
+</app-todo-item> -->
+<ul class="list-group">  
+  <li  
+    *ngFor="let post of posts"   
+    class="list-group-item">  
+    {{ post.title }}  
+  </li>  
+</ul>  
