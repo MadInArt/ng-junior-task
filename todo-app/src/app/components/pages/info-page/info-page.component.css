@@ -1,0 +1,8 @@
+.infoPageContainer {
+  display: flex;
+  justify-content: center;
+  height: 90vh;
+}
+.infoPageContainer h1 {
+  align-self: center;
+}

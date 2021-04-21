@@ -1,0 +1,8 @@
+.postsPageContainer {
+  display: flex;
+  justify-content: center;
+  height: 90vh;
+}
+.postsPageContainer h1 {
+  align-self: center;
+}

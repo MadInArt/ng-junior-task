@@ -1,0 +1,28 @@
+<div class="example-container">
+
+    <mat-toolbar color="primary" class="example-toolbar">
+        <mat-toolbar-row>
+          <button mat-icon-button (click)="sidenav.toggle()" *ngIf="currentUrl != '/info'" >
+            <mat-icon>menu</mat-icon>
+          </button>
+          <div (click)="sidenav.close()">
+            <a mat-button routerLink='/main'> Main </a>
+            <a mat-button  routerLink='/info'> Info </a>
+          </div>
+        </mat-toolbar-row>
+    </mat-toolbar>
+
+    <mat-sidenav-container class="example-sidenav-container"> 
+      <mat-sidenav  #sidenav >
+        <mat-nav-list (click)="sidenav.close()" >
+          <a mat-list-item routerLink='/main/todo'> TODO list </a>
+          <a mat-list-item routerLink='/main/posts'> Posts list </a>
+        </mat-nav-list>
+      </mat-sidenav>
+
+      <mat-sidenav-content>
+          <router-outlet></router-outlet> 
+      </mat-sidenav-content>
+
+    </mat-sidenav-container>
+</div>
