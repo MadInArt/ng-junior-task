@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-addpost',
@@ -7,9 +7,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddpostComponent implements OnInit {
 
+  @Output() addPost: EventEmitter<any> = new EventEmitter();
+
+  title:string;
+  body: string;
+  userId: number;
+
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  onSubmit(){
+    const post = {
+      title: this.title,
+      body: this.body,
+      userId: this.userId,
+    }
+
+    this.addPost.emit(post);
+    this.title = '';
+    this.body = '';
+    this.userId = null;
+  }
 }

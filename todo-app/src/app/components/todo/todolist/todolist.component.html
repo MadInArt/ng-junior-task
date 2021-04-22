@@ -1,13 +1,25 @@
-<!-- <app-todo-item 
-  *ngFor="let todo of todos"
-  [todo]="todo"
-  (deleteTodo)="deleteTodo($event)"
-  >
-</app-todo-item> -->
-<ul class="list-group">  
-  <li  
-    *ngFor="let post of posts"   
-    class="list-group-item">  
-    {{ post.title }}  
-  </li>  
-</ul>  
+<div fxLayout="column" fxLayoutAlign="center" class="row-height">
+  <app-addtodo (addTodo)="addTodo($event)"></app-addtodo>
+  <mat-expansion-panel *ngFor="let item of formatedTodos">
+    <mat-expansion-panel-header style="display:flex" class="mat-row">
+      UserId - {{item[0].userId}}
+    </mat-expansion-panel-header>
+    <div *ngFor="let obj of item; let i= index">
+       <div  class="container">
+         <div> 
+           TDId - {{obj.id}} |
+          {{obj.title}} 
+        </div>
+       <div class="actionsContainer" >
+          <mat-checkbox class="example-margin" (change)="onToggle(obj)"> Completed: {{obj.completed}}</mat-checkbox> 
+          <button mat-raised-button color="warn" (click)="deleteTodo(obj)"> Delete task</button>
+       </div>
+     </div>
+      <hr>
+    </div>
+  </mat-expansion-panel>
+  <div fxLayout="row" fxLayoutAlign="space-around center" style="height:100%">
+    <mat-spinner *ngIf="showLoader"></mat-spinner>
+  </div>
+</div>
+

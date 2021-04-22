@@ -1,1 +1,11 @@
-<p>addtodo works!</p>
+<form (ngSubmit)="onSubmit()">
+    <mat-form-field class="example-full-width">
+        <input  matInput type="text" name="title" [(ngModel)]="title"  placeholder="Add ToDo">
+    </mat-form-field>
+    
+    <mat-form-field class="example-full-width">
+        <input  matInput type="text" name="userId" [(ngModel)]="userId" placeholder="Add userId">
+    </mat-form-field>
+    
+    <button mat-raised-button type="submit">Add ToDo</button>
+</form>

@@ -1,6 +1,4 @@
-import { Component, Input } from '@angular/core';
-import { Posts } from 'src/app/models/post';
-
+import { Component} from '@angular/core';
 
 @Component({
   selector: 'app-postsitem',
@@ -8,6 +6,12 @@ import { Posts } from 'src/app/models/post';
   styleUrls: ['./postsitem.component.css']
 })
 export class PostsitemComponent  {
-  @Input() post: Posts;
+  
+  constructor() {  
+  }  
+
+  ngOnInit() {  
+
+  }  
 
 }

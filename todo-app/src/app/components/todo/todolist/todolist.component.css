@@ -1,0 +1,10 @@
+app-addtodo{
+    margin:10px;
+}
+.actionsContainer{
+    display: flex;
+    justify-content: space-between;
+}
+.row-height {
+    height: 100%;
+}

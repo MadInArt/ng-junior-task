@@ -1,0 +1,21 @@
+.row-height {
+    height: 100%;
+}
+.example-card{
+    margin: 5px;
+}
+app-addpost{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+mat-card-actions{
+    display: flex;
+    justify-content: flex-end;
+}
+mat-card-header, mat-card-content{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    
+}
