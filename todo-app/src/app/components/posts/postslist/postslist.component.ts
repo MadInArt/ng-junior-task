@@ -11,7 +11,7 @@ export class PostslistComponent implements OnInit{
   panelOpenState = false;
   posts: Post[];
   formatedPosts: Post [];
-  showLoader = true; 
+  showLoader = true;  // show spinner by default
 
     constructor(private postService: PostService) {
       
@@ -24,7 +24,7 @@ export class PostslistComponent implements OnInit{
       console.log(this.posts)
 
       this.formatedPosts = Object.values(this.groupPostsById(this.posts, 'userId'));
-      this.showLoader = false;
+      this.showLoader = false; // remove spinner when data is loaded
       console.log(this.formatedPosts)
       });
     }
@@ -41,7 +41,7 @@ export class PostslistComponent implements OnInit{
         console.log("Added Post: ", post);
       });
     }
-    groupPostsById(array, property){
+    groupPostsById(array, property){  // Group all posts by userID
           let hash = {},
           props = property.split('.');
         for (let i = 0; i < array.length; i++) {

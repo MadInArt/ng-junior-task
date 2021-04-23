@@ -51,7 +51,7 @@ export class TodolistComponent implements OnInit {
         console.log("Updated Todo:", todo);
       });
     }
-    groupTodosById(array, property){
+    groupTodosById(array, property){  // Group all todos by userID
           let hash = {},
           props = property.split('.');
         for (let i = 0; i < array.length; i++) {

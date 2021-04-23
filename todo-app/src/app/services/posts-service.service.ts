@@ -9,7 +9,7 @@ const postsUrl = 'https://jsonplaceholder.typicode.com/posts';
 const httpOptions = {
   headers: new HttpHeaders({
     'Content-Type': 'application/json',
-    // mode: 'no-cors'
+    mode: 'no-cors'
   })
 }
 
@@ -22,7 +22,7 @@ export class PostService {
   constructor(private http:HttpClient) { }
 
   getPosts():Observable<Post[]> {
-    return this.http.get<Post[]>(`${postsUrl}`);
+    return this.http.get<Post[]>(`${postsUrl}`, httpOptions);
   }
 
   deletePost(post:Post):Observable<Post> {

@@ -8,7 +8,7 @@ const todosUrl = 'https://jsonplaceholder.typicode.com/todos';
 const httpOptions = {
   headers: new HttpHeaders({
     'Content-Type': 'application/json',
-    // mode: 'no-cors'
+    "mode": 'no-cors'
   })
 }
 
@@ -21,7 +21,7 @@ export class TodoService {
   constructor(private http:HttpClient) { }
 
   getTodos():Observable<Todo[]> {
-    return this.http.get<Todo[]>(`${todosUrl}?_limit=20`);
+    return this.http.get<Todo[]>(`${todosUrl}`, httpOptions);
   }
 
   toggleCompleted(todo:Todo):Observable<any> {
