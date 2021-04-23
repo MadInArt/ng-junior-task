@@ -10,7 +10,7 @@ import { TodoService } from 'src/app/services/todo-service.service';
   templateUrl: './todolist.component.html',
   styleUrls: ['./todolist.component.css']
 })
-export class TodolistComponent implements OnInit {
+export class TodolistComponent  implements OnInit {
     panelOpenState = false;
     todos: Todo[];
     formatedTodos: Todo [];

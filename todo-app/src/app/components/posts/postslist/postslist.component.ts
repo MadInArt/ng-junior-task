@@ -19,11 +19,11 @@ export class PostslistComponent implements OnInit{
   
     ngOnInit() {
       this.postService.getPosts().subscribe(posts => {
-      this.posts = posts;
+      this.posts = posts.sort((a, b) => a.userId - b.userId);
 
       console.log(this.posts)
 
-      this.formatedPosts = Object.values(this.groupPostsById(this.posts, 'userId'));
+      // this.formatedPosts = Object.values(this.groupPostsById(this.posts, 'userId'));
       this.showLoader = false; // remove spinner when data is loaded
       console.log(this.formatedPosts)
       });

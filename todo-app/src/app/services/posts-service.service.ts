@@ -2,36 +2,30 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';  
 import { Observable } from 'rxjs';
 import { Post } from '../models/post';
-  
+import { ApiService } from './api-service.service'
 
 const postsUrl = 'https://jsonplaceholder.typicode.com/posts';
 
-const httpOptions = {
-  headers: new HttpHeaders({
-    'Content-Type': 'application/json',
-    mode: 'no-cors'
-  })
-}
-
+allPost: 
 @Injectable({
   providedIn: 'root'
 })
 
 export class PostService {
 
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient, private apiService : ApiService ) { }
 
-  getPosts():Observable<Post[]> {
-    return this.http.get<Post[]>(`${postsUrl}`, httpOptions);
+  getPosts(): Observable<Post[]> {
+    return this.apiService.get('/posts');
   }
 
-  deletePost(post:Post):Observable<Post> {
+  deletePost(post:Post) {
     const url = `${postsUrl}/${post.id}`;
-    return this.http.delete<Post>(url, httpOptions);
+    return this.http.delete<Post>(url);
   }
 
-  addPost(post:Post):Observable<Post> {
+  addPost(post:Post) {
     const url = `${postsUrl}`;
-    return this.http.post<Post>(url, post, httpOptions);
+    return this.http.post<Post>(url, post);
   }
 }
